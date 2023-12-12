@@ -5,7 +5,7 @@ const publicRouter = require("./publicRouter");
 
 // const authentication = require("../middlewares/authentication");
 
-router.use("/", publicRouter);
+router.use("/register", publicRouter);
 
 router.use(errorHandler);
 

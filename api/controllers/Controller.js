@@ -1,11 +1,20 @@
-class controller {
-  static async home(req, res, next) {
+const { User } = require("../models");
+
+class Controller {
+  // REGISTER
+  static async register(req, res, next) {
     try {
-      res.send("welcome to homepage");
+      let { username, email, password } = req.body;
+      const user = await User.create({
+        username,
+        email,
+        password,
+      });
+      res.status(200).json(user);
     } catch (error) {
       next(error);
     }
   }
 }
 
-module.exports = controller;
+module.exports = Controller;
