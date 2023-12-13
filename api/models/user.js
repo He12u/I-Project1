@@ -56,11 +56,11 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: "",
       },
       followers: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
         defaultValue: [],
       },
       following: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
         defaultValue: [],
       },
       isAdmin: {

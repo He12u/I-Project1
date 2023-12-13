@@ -32,11 +32,11 @@ module.exports = {
         defaultValue: "",
       },
       followers: {
-        type: Sequelize.ARRAY(Sequelize.STRING),
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
         defaultValue: [],
       },
       following: {
-        type: Sequelize.ARRAY(Sequelize.STRING),
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
         defaultValue: [],
       },
       isAdmin: {

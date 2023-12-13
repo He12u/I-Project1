@@ -2,7 +2,7 @@ const { comparePassword } = require("../helpers/bcryptjs");
 const { User } = require("../models");
 const { createToken } = require("../helpers/jwt");
 
-class Controller {
+class authController {
   // REGISTER
   static async register(req, res, next) {
     try {
@@ -44,15 +44,12 @@ class Controller {
 
       res.status(200).json({
         access_token,
-        email: user.email,
-        isMember: user.isMember,
+        username: user.username,
       });
     } catch (error) {
       next(error);
     }
   }
-
-  // UPDATE
 }
 
-module.exports = Controller;
+module.exports = authController;

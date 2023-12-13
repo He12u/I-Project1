@@ -1,14 +1,14 @@
 const express = require("express");
 const errorHandler = require("../middlewares/errorHandler");
 const router = express.Router();
-const publicRouter = require("./publicRouter");
-const userRouter = require("./userRouter");
+const authRoute = require("./authRoute");
+const userRoute = require("./userRoute");
 const authentication = require("../middlewares/authentication");
 
-router.use("/pub", publicRouter);
+router.use("/auth", authRoute);
 
 router.use(authentication);
-router.use("/users", userRouter);
+router.use("/users", userRoute);
 
 router.use(errorHandler);
 
