@@ -43,6 +43,19 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
+      desc: {
+        type: Sequelize.STRING,
+      },
+      city: {
+        type: Sequelize.STRING,
+      },
+      from: {
+        type: Sequelize.STRING,
+      },
+      isMember: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

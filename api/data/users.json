@@ -5,7 +5,8 @@
     "password": "123456",
     "profilePicture": "",
     "coverPicture": "",
-    "isAdmin": true
+    "isAdmin": true,
+    "isMember": true
   },
   {
     "username": "user1",
@@ -13,7 +14,8 @@
     "password": "123456",
     "profilePicture": "",
     "coverPicture": "",
-    "isAdmin": false
+    "isAdmin": false,
+    "isMember": true
   },
   {
     "username": "user2",
@@ -21,6 +23,7 @@
     "password": "123456",
     "profilePicture": "",
     "coverPicture": "",
-    "isAdmin": false
+    "isAdmin": false,
+    "isMember": false
   }
 ]

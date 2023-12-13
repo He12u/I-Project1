@@ -2,7 +2,10 @@ const express = require("express");
 const Controller = require("../controllers/Controller");
 const router = express.Router();
 
-router.post("/register", Controller.register);
-router.post("/login", Controller.login);
+// UPDATE
+// DELETE
+// GET
+// FOLLOW
+// UNFOLLOW
 
 module.exports = router;

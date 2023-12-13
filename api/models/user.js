@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
           notNull: { msg: "Password are required !" },
           notEmpty: { msg: "Password are required !" },
           len: {
-            args: [[6, Infinity]],
+            args: [6, Infinity],
             msg: "Password length minimum 6",
           },
         },
@@ -64,6 +64,19 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: [],
       },
       isAdmin: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
+      desc: {
+        type: DataTypes.STRING,
+      },
+      city: {
+        type: DataTypes.STRING,
+      },
+      from: {
+        type: DataTypes.STRING,
+      },
+      isMember: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
