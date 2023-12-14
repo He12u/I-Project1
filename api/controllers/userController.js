@@ -146,6 +146,24 @@ class userController {
       next(error);
     }
   }
+  // GET FRIENDS
+  static async getFriends(req, res, next) {
+    try {
+      const { userId } = req.params;
+      const user = await User.findById(userId);
+      const friends = await user.following.map((friendId) => {
+        return User.findById(friendId);
+      });
+      let friendList = [];
+      friends.map((friend) => {
+        const { id, username, profilePicture } = friend;
+        friendList.push({ id, username, profilePicture });
+      });
+      res.status(200).json(friendList);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = userController;
