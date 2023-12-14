@@ -47,8 +47,10 @@ export default function Register() {
 
   if (loading) {
     return (
-      <div>
-        <h1>Loading ....</h1>
+      <div class="d-flex justify-content-center">
+        <div className="spinner-border text-warning" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
       </div>
     );
   }

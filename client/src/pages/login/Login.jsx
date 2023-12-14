@@ -1,5 +1,5 @@
 import instanceURL from "../../config/instance";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./login.css";
@@ -42,11 +42,30 @@ export default function Login() {
 
   if (loading) {
     return (
-      <div>
-        <h1>Loading ...</h1>
+      <div class="d-flex justify-content-center">
+        <div className="spinner-border text-warning" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
       </div>
     );
   }
+
+  const handleCredentialResponse = (data) => {
+    console.log(data);
+  };
+
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id:
+        "830963084603-l6s7rfn3r0inlolmlsount0ah8duesv7.apps.googleusercontent.com",
+      callback: handleCredentialResponse,
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("buttonDiv"),
+      { theme: "outline", size: "large" } // customization attributes
+    );
+    // google.accounts.id.prompt(); // also display the One Tap dialog
+  }, []);
 
   return (
     <div className="login">
@@ -79,6 +98,9 @@ export default function Login() {
             <button className="loginButton" type="submit">
               Log In
             </button>
+            <div className="d-flex flex-column align-items-center">
+              <div id="buttonDiv"></div>
+            </div>
             <button
               type="button"
               className="loginRegisterButton"
