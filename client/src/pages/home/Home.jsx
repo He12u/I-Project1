@@ -37,7 +37,7 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div class="d-flex justify-content-center">
+      <div className="d-flex justify-content-center">
         <div className="spinner-border text-warning" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>

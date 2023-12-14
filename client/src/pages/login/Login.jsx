@@ -18,8 +18,8 @@ export default function Login() {
   }
 
   async function handleSubmit(event) {
+    event.preventDefault();
     try {
-      event.preventDefault();
       setLoading(true);
       const { email, password } = loginForm;
 
@@ -50,8 +50,26 @@ export default function Login() {
     );
   }
 
-  const handleCredentialResponse = (data) => {
-    console.log(data);
+  const handleCredentialResponse = async ({ credential }) => {
+    try {
+      setLoading(true);
+
+      const { data } = await instanceURL.post(
+        "/googleLogin",
+        {},
+        { headers: { ["google-token"]: credential } }
+      );
+      localStorage.access_token = data.access_token;
+      navigate("/");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.response.data.message,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
