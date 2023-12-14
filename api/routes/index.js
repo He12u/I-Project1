@@ -3,7 +3,6 @@ const errorHandler = require("../middlewares/errorHandler");
 const router = express.Router();
 const authRoute = require("./authRoute");
 const userRoute = require("./userRoute");
-const postsRoute = require("./postsRoute");
 const gLoginRoute = require("./gLoginRoute");
 const paymentsRoute = require("./paymentsRoute");
 const authentication = require("../middlewares/authentication");

@@ -16,10 +16,8 @@ class gLoginController {
       const email = payload.email;
 
       let user = await User.findOne({ where: { email } });
-      console.log("user found");
 
       if (!user) {
-        console.log("create new user");
         user = await User.create(
           {
             username: payload.email.split("@")[0],
