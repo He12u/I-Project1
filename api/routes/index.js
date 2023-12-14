@@ -14,7 +14,6 @@ router.use("/googleLogin", gLoginRoute);
 router.use(authentication);
 router.use("/payment", paymentsRoute);
 router.use("/users", userRoute);
-router.use("/posts", postsRoute);
 
 router.use(errorHandler);
 

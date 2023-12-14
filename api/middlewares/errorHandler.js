@@ -7,14 +7,16 @@ const errorHandler = async (error, req, res, next) => {
       return el.message;
     });
     res.status(400).json(message);
-  } else if (error.name === "404") {
-    res.status(404).json({ message: "Invalid email or password" });
   } else if (error.name === "400") {
     res.status(400).json({ message: "Invalid email or password" });
   } else if (error.name === "401") {
     res.status(401).json({ message: "Unauthorized access" });
   } else if (error.name === "403") {
     res.status(403).json({ message: "Forbiden Access" });
+  } else if (error.name === "404") {
+    res.status(404).json({ message: "Error not found" });
+  } else {
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
