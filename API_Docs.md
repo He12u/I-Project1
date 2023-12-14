@@ -6,36 +6,30 @@
 
 ## List of Available Endpoints :
 
-- 'GET /auth/register'
-- 'GET /auth/login'
+- 'POST /auth/register'
+- 'POST /auth/login'
 
 - 'POST /googleLogin'
 
 routes below need authentication :
 
-- 'GET /categories'
-- 'POST /categories/add'
-- 'PUT /categories/:id/update'
-- 'DELETE /categories/:id/delete'
+- 'POST /payment/midtrans/token'
 
-- 'GET /cuisines'
-- 'POST /cuisines/add'
-- 'GET /cuisines/:id'
-
-routes below need authorization :
-
-- 'PUT /cuisines/:id/update'
-- 'PATCH /cuisines/:id/updateImgUrl'
-- 'DELETE /cuisines/:id/delete'
+- 'PUT /users/:id
+- 'DELETE /users/:id
+- 'GET /users/:id
+- 'PUT /users/:id/follow
+- 'PUT /users/:id/unfollow
+- 'GET /users/friends/:userId
 
 &nbsp;
 
-## 1. GET /pub/cuisines
+## 1. POST /auth/register
 
 _Query_
 
 ```js
-{ sort, search, filter, page } = req.query
+const { username, email, password } = req.body;
 ```
 
 _Response (200 - OK)_
