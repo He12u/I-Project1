@@ -25,10 +25,11 @@ export default function Home() {
       );
       setData(news.data.articles);
     } catch (error) {
+      console.log(error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: error.response.data.message,
+        text: error.message,
       });
     } finally {
       setLoading(false);
