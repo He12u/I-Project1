@@ -10,8 +10,8 @@ import ArticlesCard from "../../components/articlesCard";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
-
   const [data, setData] = useState([]);
+
   useEffect(() => {
     getNews();
   }, []);

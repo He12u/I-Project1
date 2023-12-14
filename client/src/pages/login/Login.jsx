@@ -17,9 +17,22 @@ export default function Login() {
     setLoginForm({ ...loginForm, [name]: value });
   }
 
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id:
+        "830963084603-l6s7rfn3r0inlolmlsount0ah8duesv7.apps.googleusercontent.com",
+      callback: handleCredentialResponse,
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("buttonDiv"),
+      { theme: "outline", size: "large" } // customization attributes
+    );
+    // google.accounts.id.prompt(); // also display the One Tap dialog
+  }, []);
+
   async function handleSubmit(event) {
-    event.preventDefault();
     try {
+      event.preventDefault();
       setLoading(true);
       const { email, password } = loginForm;
 
@@ -42,7 +55,7 @@ export default function Login() {
 
   if (loading) {
     return (
-      <div class="d-flex justify-content-center">
+      <div className="d-flex justify-content-center">
         <div className="spinner-border text-warning" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
@@ -71,19 +84,6 @@ export default function Login() {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id:
-        "830963084603-l6s7rfn3r0inlolmlsount0ah8duesv7.apps.googleusercontent.com",
-      callback: handleCredentialResponse,
-    });
-    google.accounts.id.renderButton(
-      document.getElementById("buttonDiv"),
-      { theme: "outline", size: "large" } // customization attributes
-    );
-    // google.accounts.id.prompt(); // also display the One Tap dialog
-  }, []);
 
   return (
     <div className="login">
