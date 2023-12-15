@@ -59,7 +59,7 @@ export default function Payment() {
           <h3 className="loginLogo">Paksibuk</h3>
           <span className="loginDesc">
             <p>Connect with friends and the world around you.</p>
-            <p>Please register as a member to get access</p>
+            <p className="fw-bold">Please register as a member to get access</p>
           </span>
         </div>
         <div className="loginRight">
