@@ -122,9 +122,6 @@ export default function Login() {
             <button className="loginButton" type="submit">
               Log In
             </button>
-            <div className="d-flex flex-column align-items-center">
-              <div id="buttonDiv"></div>
-            </div>
             <button
               type="button"
               className="loginRegisterButton"
@@ -132,6 +129,9 @@ export default function Login() {
             >
               Create a New Account
             </button>
+            <div className="d-flex flex-column align-items-center">
+              <div id="buttonDiv"></div>
+            </div>
           </form>
         </div>
       </div>

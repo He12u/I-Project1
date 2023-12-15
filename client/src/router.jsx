@@ -44,13 +44,10 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
     loader: () => {
-      if (
-        localStorage.getItem("access_token") &&
-        localStorage.getItem("isMember")
-      ) {
+      if (localStorage.getItem("access_token")) {
         return redirect("/");
       } else {
-        return redirect("/payment");
+        return null;
       }
     },
   },
