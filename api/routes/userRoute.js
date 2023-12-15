@@ -2,6 +2,8 @@ const express = require("express");
 const userController = require("../controllers/userController");
 const router = express.Router();
 
+// GET FRIENDS
+router.get("/friends/", userController.getFriends);
 // UPDATE
 router.put("/:id", userController.updateUser);
 // DELETE
@@ -12,7 +14,5 @@ router.get("/:id", userController.getUser);
 router.put("/:id/follow", userController.followUser);
 // UNFOLLOW
 router.put("/:id/unfollow", userController.unfollowUser);
-// GET FRIENDS
-router.get("/friends/:userId", userController.getFriends);
 
 module.exports = router;

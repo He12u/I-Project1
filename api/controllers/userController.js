@@ -149,17 +149,20 @@ class userController {
   // GET FRIENDS
   static async getFriends(req, res, next) {
     try {
-      const { userId } = req.params;
-      const user = await User.findById(userId);
-      const friends = await user.following.map((friendId) => {
-        return User.findById(friendId);
-      });
+      const { id } = req.user;
+      const user = await User.findByPk(id);
       let friendList = [];
-      friends.map((friend) => {
-        const { id, username, profilePicture } = friend;
-        friendList.push({ id, username, profilePicture });
+      user.following.forEach(async (friendId) => {
+        const data = await User.findByPk(friendId);
+        // console.log(data, "<<<<");
+        friendList.push(data);
       });
-      res.status(200).json(friendList);
+      console.log(friendList, "<<<<<<<<<<<<");
+      // friends.map((friend) => {
+      //   const { id, username, profilePicture } = friend;
+      //   friendList.push({ id, username, profilePicture });
+      // });
+      // res.status(200).json(friendList);
     } catch (error) {
       console.log(error);
       next(error);
