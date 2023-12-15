@@ -45,6 +45,7 @@ class authController {
       res.status(200).json({
         access_token,
         username: user.username,
+        isMember: user.isMember,
       });
     } catch (error) {
       next(error);
