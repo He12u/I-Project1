@@ -40,15 +40,12 @@ export default function Login() {
         email,
         password,
       });
-      console.log(data);
       localStorage.access_token = data.access_token;
       localStorage.isMember = data.isMember;
 
       if (data.isMember) {
-        console.log("masukkk /");
         navigate("/");
       } else {
-        console.log("masuk payment");
         navigate("/payment");
       }
     } catch (error) {

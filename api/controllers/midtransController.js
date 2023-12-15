@@ -21,7 +21,9 @@ class midtransController {
       const response = await snap.createTransaction(parameter);
 
       res.json(response);
-    } catch (error) {}
+    } catch (error) {
+      next(error);
+    }
   }
 
   static async updateMember(req, res, next) {

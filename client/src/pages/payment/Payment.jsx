@@ -11,6 +11,7 @@ export default function Payment() {
   async function handleMember(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       const { data } = await instanceURL.post(
         "/payment/midtrans/token",
         {},
@@ -23,11 +24,16 @@ export default function Payment() {
       window.snap.pay(data.token, {
         onSuccess: async function (result) {
           const { data } = await instanceURL.put("/payment/midtrans/update");
-          console.log(data);
         },
       });
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error,
+      });
+    } finally {
+      setLoading(false);
     }
   }
 
