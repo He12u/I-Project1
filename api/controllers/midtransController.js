@@ -29,8 +29,11 @@ class midtransController {
   static async updateMember(req, res, next) {
     try {
       const { id } = req.user;
-      await User.update({ isMember: true }, { where: { id }, returning: true });
-      res.status(200).json({ message: "succes update member" });
+      const data = await User.update(
+        { isMember: true },
+        { where: { id }, returning: true }
+      );
+      res.status(200).json(data);
     } catch (error) {
       next(error);
     }

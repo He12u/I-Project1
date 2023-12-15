@@ -157,7 +157,6 @@ class userController {
         // console.log(data, "<<<<");
         friendList.push(data);
       });
-      console.log(friendList, "<<<<<<<<<<<<");
       // friends.map((friend) => {
       //   const { id, username, profilePicture } = friend;
       //   friendList.push({ id, username, profilePicture });

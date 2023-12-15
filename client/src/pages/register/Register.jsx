@@ -21,7 +21,6 @@ export default function Register() {
   }
 
   async function handleSubmit(e) {
-    console.log("jalan handleSubmit");
     e.preventDefault();
     try {
       setLoading(true);

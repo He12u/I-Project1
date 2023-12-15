@@ -23,7 +23,22 @@ export default function Payment() {
       );
       window.snap.pay(data.token, {
         onSuccess: async function (result) {
-          const { data } = await instanceURL.put("/payment/midtrans/update");
+          const { data } = await instanceURL.put(
+            "/payment/midtrans/update",
+            {},
+            {
+              headers: {
+                Authorization: "Bearer " + localStorage.getItem("access_token"),
+              },
+            }
+          );
+          localStorage.isMember = data[1][0].isMember;
+
+          if (data[1][0].isMember) {
+            navigate("/");
+          } else {
+            navigate("/payment");
+          }
         },
       });
     } catch (error) {
