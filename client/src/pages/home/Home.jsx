@@ -55,9 +55,6 @@ export default function Home() {
             return <ArticlesCard key={i + 1} data={el} />;
           })}
         </div>
-        {/* <Sidebar />
-        <Feed />
-        <Rightbar /> */}
       </div>
     </>
   );
