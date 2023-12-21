@@ -3,7 +3,8 @@ const userController = require("../controllers/userController");
 const router = express.Router();
 
 // GET FRIENDS
-router.get("/friends/", userController.getFriends);
+// BELUM JALAN
+router.get("/friends", userController.getFriends);
 // UPDATE
 router.put("/:id", userController.updateUser);
 // DELETE
