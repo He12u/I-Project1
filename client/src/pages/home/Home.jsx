@@ -4,8 +4,6 @@ import Topbar from "../../components/topbar/Topbar";
 // import Rightbar from "../../components/rightbar/Rightbar";
 import "./home.css";
 import { useEffect, useState } from "react";
-import Swal from "sweetalert2";
-import axios from "axios";
 import ArticlesCard from "../../components/articlesCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../../features/counter/newsSlice";
