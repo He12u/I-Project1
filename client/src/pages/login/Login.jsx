@@ -20,7 +20,7 @@ export default function Login() {
   useEffect(() => {
     google.accounts.id.initialize({
       client_id:
-        "830963084603-l6s7rfn3r0inlolmlsount0ah8duesv7.apps.googleusercontent.com",
+        "1049390907543-1dsqbnmd17esjaaut6c1o5tj0946nplr.apps.googleusercontent.com",
       callback: handleCredentialResponse,
     });
     google.accounts.id.renderButton(
@@ -78,8 +78,15 @@ export default function Login() {
         {},
         { headers: { ["google-token"]: credential } }
       );
+
       localStorage.access_token = data.access_token;
-      navigate("/");
+      localStorage.isMember = data.isMember;
+
+      if (data.isMember) {
+        navigate("/");
+      } else {
+        navigate("/payment");
+      }
     } catch (error) {
       Swal.fire({
         icon: "error",
